@@ -1,0 +1,442 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+/* Debugging */
+#scrollView {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 50px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+
+/* Global Styles */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+    /* Simple solution for smooth scrolling, possibly upgrade to JS */
+    scroll-behavior: smooth;
+    font-family: 'Raleway', sans-serif;
+}
+
+html {
+    background-image: linear-gradient(0deg, rgba(0, 231, 255, 0.4), rgba(0, 231, 255, 0.4)), url("../images/bg.png");
+    background-position: bottom;
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+}
+
+body {
+    margin: 70px;
+}
+
+/* #scrollToTop {
+    position: fixed;
+    bottom: 70px;
+    right: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+} */
+
+
+/* Header Styles */
+header {
+    height: calc(100vh - 70px);
+    background-image: linear-gradient(145deg, rgba(51,51,51,0.7) 0%, rgba(51,51,51,0.7) 50%,
+     rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.7) 50%), url("../images/header-bg.jpg");
+    /* background-attachment: fixed; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+nav {
+    padding-top: 10px;
+    width: 100%;
+    color: #FFF;
+    height: 80px;
+}
+
+
+/* Navigation Left Container */
+#left-contain {
+    display: inline-block;
+    margin: 10px;
+}
+
+#nav-icon {
+    width: 2.3rem;
+    z-index: 10;
+    position: relative;
+    top: 0;
+    left: 10px;
+}
+
+#text-logo {
+    display: inline;
+    position: relative;
+    top: -0.65rem;
+    left: -1.5rem;
+    transition: left 1s, opacity 0.5s;
+    transition-timing-function: ease;
+    font-size: 1.5rem;
+    opacity: 0;
+}
+
+/* Animation */
+#img-link:hover ~ #text-logo {
+    left: 20px;
+    opacity: 1;
+}
+
+/* Navigation Right Container */
+#right-contain {
+    float: right;
+    transform: translateY(20%);
+    margin-right: 20px;
+}
+
+.nav-link {
+    color: #FFF;
+    margin: 0 0.2rem;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    transition-duration: 0.5s;
+    font-size: 1.2rem;
+}
+
+.nav-link > span {
+    padding: 15px;
+    display: inline-block;
+}
+
+.nav-link:hover {
+    text-decoration: none;
+    color: #00E7FF;
+}
+
+/* Link Corner Borders */
+.nav-link::before {
+    width: 5px;
+    height: 5px;
+    background: transparent;
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-left: 1px solid #00E7FF;
+    border-bottom: 1px solid #00E7FF;
+    transition-duration: 0.2s;
+    opacity: 0;
+}
+
+.nav-link::after {
+    width: 5px;
+    height: 5px;
+    background: transparent;
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    border-right: 1px solid #00E7FF;
+    border-bottom: 1px solid #00E7FF;
+    transition-duration: 0.2s;
+    opacity: 0;
+}
+
+.nav-link > span::before {
+    width: 5px;
+    height: 5px;
+    background: transparent;
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-left: 1px solid #00E7FF;
+    border-top: 1px solid #00E7FF;
+    transition-duration: 0.2s;
+    opacity: 0;
+}
+
+.nav-link > span::after {
+    width: 5px;
+    height: 5px;
+    background: transparent;
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-right: 1px solid #00E7FF;
+    border-top: 1px solid #00E7FF;
+    transition-duration: 0.2s;
+    opacity: 0;
+}
+
+/* Show Link Corner Borders */
+.nav-link:hover::before {
+    opacity: 1;
+    left: 2px;
+    bottom: 2px;
+}
+
+.nav-link:hover::after {
+    opacity: 1;
+    right: 2px;
+    bottom: 2px;
+}
+
+.nav-link > span:hover::before {
+    opacity: 1;
+    left: 2px;
+    top: 2px;
+}
+
+.nav-link > span:hover::after {
+    opacity: 1;
+    right: 2px;
+    top: 2px;
+}
+
+/* Header Image/Info */
+#header-info > img{
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    position: relative;
+    top: 15rem;
+    left: 15%;
+}
+
+
+/* Section Styles */
+.main-sections {
+    width: 100%;
+    min-height: 200px;
+    padding: 40px 0;
+    background-color: #333;
+    /* border-bottom: 2px solid #00E7FF; */
+}
+
+/* .main-sections:nth-child(even) {
+    background-color: #333;
+} */
+
+/* .main-sections:nth-child(odd) {
+    background-color: #111;
+} */
+
+
+/* Team Section */
+#team {
+    background-color: #FFF;
+}
+
+#team > h1 {
+    position: relative;
+    left: 10%;
+    transition-property: opacity;
+    transition-duration: 5s;
+    opacity: 0;
+    font-size: 3em;
+    color: #0D0D0D;
+}
+
+/* Card Styles */
+.card {
+    width: 250px;
+    height: 350px;
+    background-color: #000;
+    border-radius: 22px;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards;
+    transition-property: opacity;
+    transition-duration: 1s;
+    opacity: 0;
+    
+} 
+
+.image {
+    background-image: url("../images/team/placeholder.png");
+    background-color: #777;
+    height: 50%;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-size: cover;
+    background-position: center;
+  }
+
+#card-1 > .image {
+    /* background-image: url("../images/team/demo/kenny.jpg"); */
+    background-image: url("../images/team/kenny.jpg");
+}
+
+#card-2 > .image {
+    /* background-image: url("../images/team/demo/nikki.jpg"); */
+    background-image: url("../images/team/nikki.jpg");
+}
+
+#card-3 > .image {
+    background-image: url("../images/team/billy.jpg");
+}
+
+#card-4 > .image {
+    background-image: url("../images/team/jee.jpg");
+}
+
+#card-5 > .image {
+    background-image: url("../images/team/martin.jpg");
+}
+
+/* .card:hover {
+    transition-property: all;
+    transition-duration: 0.5s;
+    Find a way to fix box-shadow
+    box-shadow: 5px 5px 10px #888888;
+    transform: perspective(1000px) translateZ(-20px);
+} */
+  
+.card > section {
+    background-color: #999;
+    color: #FFF;
+    height: 50%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    position: relative;
+}
+
+section > p {
+    padding: 10px 10px 0 10px;
+    margin: 0;
+}
+
+section > h3 {
+    background-color: #333;
+    color: #00E7FF;
+    display: inline;
+    padding: 5px 10px;
+    position: absolute;
+    top: -27px;
+    left: -20px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/* Card Animation */
+@keyframes shadowBounce {
+    0% {
+        transform: scale(1);
+    } 
+    25% {
+        transform: scale(1.1);
+        box-shadow: 5px 5px 30px #888888;
+    }
+    50% {
+        transform: scale(1);
+        box-shadow: 5px 5px 5px #888888;
+    }
+    60% {
+        transform: scale(1.02);
+        box-shadow: 5px 5px 15px #888888;
+    }
+    70% {
+        transform: scale(1);
+        box-shadow: 5px 5px 5px #888888;
+    }
+    80% {
+        transform: scale(1.01);
+        box-shadow: 5px 5px 10px #888888;
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 5px 5px 5px #888888;
+    } 
+}
+
+#cardDeck {
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 80px;
+}
+
+form {
+    height: auto;
+    max-width: 30%;
+    background-color: rgba(51,51,51,0.8);
+    box-shadow: 0 0 30px 5px #00E7FF;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 20px 10px 40px 10px;
+}
+
+#header {
+    color: #FFF;
+    padding: 10px 20px;
+}
+
+#info > * {
+    margin-bottom: 10px;
+}
+
+#info {
+    max-width: 70%;
+}
+
+#inputSection {
+    text-align: center;
+}
+
+.inputs {
+    color: #FFF;
+    background-color: rgba(0,0,0,0);
+    border: none;
+    border-bottom: 1px solid #FFF;
+    margin: 30px 0;
+    width: 60%;
+    padding: 5px 0;
+    font-size: 1em
+}
+
+.inputs:focus {
+    border: none;
+    box-shadow: 0 0 10px #000;
+    padding-left: 10px;
+}
+
+#message {
+    resize: none;
+    word-break: break-all;
+}
+
+
+/* Footer Styles */
+footer {
+    width: 100%;
+    height: 60px;
+    margin-bottom: 70px;
+    background-color: #0D0D0D;
+    border-bottom-left-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+footer > p {
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
