@@ -238,8 +238,8 @@ nav {
 @media only screen and (max-width: 900px) {
     #right-contain {
         position: absolute;
-        top: 150px;
-        left: 110px;
+        top: 8%;
+        left: 7vw;
         background-color: #EEE;
         display: flex;
         flex-direction: column;
