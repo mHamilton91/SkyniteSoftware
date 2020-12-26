@@ -1,5 +1,6 @@
 let $ = (element) => {return document.getElementById(element)}
-let deck
+
+let deck, logo, link
 let scroll
 let nav
 let teamTitle
@@ -29,27 +30,28 @@ let cardAnimation = () => {
     myLoop()
 }
 
-let fixedNav = (elem) => {
-    elem.style.position = "fixed";
-}
-
 document.addEventListener("DOMContentLoaded", function(){
     scroll = $("scrollView")
     nav = $("navFixed")
     teamTitle = $("team-title")
+    logo = $("nav-icon")
+    link = $("right-contain")
+    style = window.getComputedStyle(link)
     deck = document.getElementsByClassName("card")
 
     window.addEventListener('scroll', event => {
-
         scrollOutput()
-        // Should be changed so that it only happens once instead of multiple times before the opacity changes
         // if ((window.pageYOffset >= 1795) && (deck[0].style.opacity != 1)) {
         if(deck[0].style.opacity != 1) {
             cardAnimation()
         }
-
-        // if ((window.pageYOffset >= 70)) {
-        //     fixedNav(nav)
-        // }
     });
+
+    logo.addEventListener('click', event => {
+        if (style.getPropertyValue("display") == "flex") {
+            link.classList.toggle("invisible")
+            link.classList.toggle("visible")
+          }
+    });
+
 });
