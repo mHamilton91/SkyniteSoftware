@@ -39,6 +39,7 @@ body {
 
 .noSelect {
     user-select: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* #scrollToTop {
