@@ -291,8 +291,7 @@ nav {
 }
 
 #team > h1 {
-    position: relative;
-    left: 10%;
+    margin-left: 10%;
     transition-property: opacity;
     transition-duration: 5s;
     opacity: 0;
