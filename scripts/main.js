@@ -47,11 +47,17 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     });
 
-    logo.addEventListener('click', event => {
-        if (style.getPropertyValue("display") == "flex") {
-            link.classList.toggle("invisible")
-            link.classList.toggle("visible")
-          }
+    document.addEventListener('click', e => {
+        if (e.target == logo) {
+            if (style.getPropertyValue("display") == "flex") {
+                link.classList.toggle("invisible")
+                link.classList.toggle("visible")
+            }
+        } else if (e.target != logo) {
+            if (link.classList.contains("visible")) {
+                link.classList.add("invisible")
+                link.classList.remove("visible") 
+            }
+        }
     });
-
 });

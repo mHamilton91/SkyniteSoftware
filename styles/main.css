@@ -90,6 +90,10 @@ nav {
     left: 20px;
 }
 
+#img-link {
+    cursor: pointer;
+}
+
 #text-logo {
     /* display: inline; */
     position: relative;
