@@ -52,7 +52,7 @@ body {
 
 /* Header Styles */
 header {
-    height: calc(100vh - 70px);
+    height: calc(100vh - 3%);
     background-image: linear-gradient(145deg, rgba(51,51,51,0.7) 0%, rgba(51,51,51,0.7) 50%,
      rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.7) 50%), url("../images/header-bg.jpg");
     /* background-attachment: fixed; */
@@ -238,8 +238,8 @@ nav {
 @media only screen and (max-width: 900px) {
     #right-contain {
         position: absolute;
-        top: 8%;
-        left: 7vw;
+        top: 9%;
+        left: 9%;
         background-color: #EEE;
         display: flex;
         flex-direction: column;
