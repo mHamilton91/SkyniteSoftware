@@ -37,6 +37,10 @@ body {
     margin: 3%;
 }
 
+.noSelect {
+    user-select: none;
+}
+
 /* #scrollToTop {
     position: fixed;
     bottom: 70px;
@@ -254,15 +258,6 @@ nav {
         z-index: 10;
     }
 
-    .invisible {
-        opacity: 0;
-    }
-    
-    .visible {
-        transition: opacity 0.5s;
-        opacity: 1
-    }
-
     #right-contain > a {
         margin: 5px 0;
         text-decoration: none;
@@ -273,6 +268,15 @@ nav {
     #img-link:hover ~ #text-logo {
         left: 1.3rem;
         opacity: 0;
+    }
+
+    .invisible {
+        opacity: 0;
+    }
+    
+    .visible {
+        transition: opacity 0.5s;
+        opacity: 1
     }
 }
 
