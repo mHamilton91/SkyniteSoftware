@@ -290,21 +290,31 @@ nav {
     /* border-bottom: 2px solid #00E7FF; */
 }
 
-/* .main-sections:nth-child(even) {
-    background-color: #333;
-} */
 
-/* .main-sections:nth-child(odd) {
-    background-color: #111;
-} */
+/* About Section */
+#about {
+    color: #EEE;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+#about > h1 {
+    font-size: 3em;
+    margin-left: 10%;
+    margin-bottom: 30px
+}
+
+#about > p {
+    text-align: center;
+}
 
 
 /* Team Section */
 #team {
-    background-color: #FFF;
+    background-color: #EEE;
 }
 
-#team > h1 {
+#team-title {
     margin-left: 10%;
     transition-property: opacity;
     transition-duration: 5s;
@@ -338,12 +348,10 @@ nav {
   }
 
 #card-1 > .image {
-    /* background-image: url("../images/team/demo/kenny.jpg"); */
     background-image: url("../images/team/kenny.jpg");
 }
 
 #card-2 > .image {
-    /* background-image: url("../images/team/demo/nikki.jpg"); */
     background-image: url("../images/team/nikki.jpg");
 }
 
@@ -376,12 +384,7 @@ nav {
     position: relative;
 }
 
-section > p {
-    padding: 10px 10px 0 10px;
-    margin: 0;
-}
-
-section > h3 {
+.card-info > h3 {
     background-color: #333;
     color: #00E7FF;
     display: inline;
@@ -391,6 +394,11 @@ section > h3 {
     left: -20px;
     border-top-left-radius: 10px;
     border-bottom-right-radius: 10px;
+}
+
+.card-info > p {
+    padding: 10px 10px 0 10px;
+    margin: 0;
 }
 
 /* Card Animation */
