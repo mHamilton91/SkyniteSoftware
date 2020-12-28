@@ -45,9 +45,9 @@ document.addEventListener("DOMContentLoaded", function(){
     window.addEventListener('scroll', event => {
         scrollOutput()
         // if ((window.pageYOffset >= 1795) && (deck[0].style.opacity != 1)) {
-        // if(deck[0].style.opacity != 1) {
-        //     cardAnimation()
-        // }
+        if(deck[0].style.opacity != 1) {
+            cardAnimation()
+        }
 
         if ((window.pageYOffset >= 500) && (aboutTitle.style.opacity != 1)) {
             aboutTitle.style.top = 0
