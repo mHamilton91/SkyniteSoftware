@@ -1,9 +1,6 @@
 let $ = (element) => {return document.getElementById(element)}
 
-let deck, logo, link
-let scroll
-let nav
-let teamTitle
+let deck, logo, link, scroll, nav, teamTitle
 
 let scrollOutput = () => {
     scroll.style.padding = "15px 0"
@@ -30,26 +27,63 @@ let cardAnimation = () => {
     myLoop()
 }
 
+let fadeUp = () => {
+
+}
+
 document.addEventListener("DOMContentLoaded", function(){
-    scroll = $("scrollView")
     nav = $("navFixed")
-    teamTitle = $("team-title")
     logo = $("nav-icon")
+    scroll = $("scrollView")
     link = $("right-contain")
-    style = window.getComputedStyle(link)
+    teamTitle = $("team-title")
+    aboutTitle = $("about-title")
+    aboutInfo = $("about-info")
+    linkStyle = window.getComputedStyle(link)
     deck = document.getElementsByClassName("card")
 
     window.addEventListener('scroll', event => {
         scrollOutput()
         // if ((window.pageYOffset >= 1795) && (deck[0].style.opacity != 1)) {
-        if(deck[0].style.opacity != 1) {
-            cardAnimation()
+        // if(deck[0].style.opacity != 1) {
+        //     cardAnimation()
+        // }
+
+        if ((window.pageYOffset >= 500) && (aboutTitle.style.opacity != 1)) {
+            aboutTitle.style.top = 0
+            aboutTitle.style.opacity = 1
+            setTimeout(function(){
+                aboutInfo.style.top = 0
+                aboutInfo.style.opacity = 1
+                
+                setTimeout(function() {
+                    $("design").classList.add("designBorder")
+                    setTimeout(function() {
+                        $("design").style.borderBottom = "2px solid #00E7FF"
+                    }, 1500)
+                }, 500)
+
+                setTimeout(function() {
+                    $("build").classList.add("buildBorder")
+                    setTimeout(function() {
+                        $("build").style.borderBottom = "2px solid #00E7FF"
+                    }, 2000)
+                }, 1500)
+
+                setTimeout(function() {
+                    $("inspire").classList.add("inspireBorder")
+                    setTimeout(function() {
+                        $("inspire").style.borderBottom = "2px solid #00E7FF"
+                    }, 1500)
+                }, 2000)
+
+            }, 200);
         }
     });
 
     document.addEventListener('click', e => {
         if (e.target == logo) {
-            if (style.getPropertyValue("display") == "flex") {
+            if (linkStyle.getPropertyValue("display") == "flex") {
                 link.classList.toggle("invisible")
                 link.classList.toggle("visible")
             }

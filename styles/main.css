@@ -294,18 +294,95 @@ nav {
 /* About Section */
 #about {
     color: #EEE;
-    padding: 30px;
+    padding: 40px;
     box-sizing: border-box;
+    position: relative;
 }
 
-#about > h1 {
+#about-title {
     font-size: 3em;
-    margin-left: 10%;
-    margin-bottom: 30px
+    margin-left: 15%;
+    margin-bottom: 30px;
+    position: relative;
+    transition: top 1s, opacity 1s;
+    top: 50px;
+    opacity: 0;
 }
 
-#about > p {
+#about-info {
     text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.8rem;
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    transition: top 1s, opacity 1s;
+    top: 50px;
+    opacity: 0;
+}
+
+#design, #build, #inspire {
+    position: relative;
+}
+
+.designBorder::before {
+    animation-iteration-count: 1; 
+    animation-play-state: paused;
+    animation: designUnderline 2s;
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    height: 10px;
+    border-bottom: 2px solid #00E7FF;
+}
+
+@keyframes designUnderline {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 56.5px;
+    }
+}
+
+.buildBorder::before {
+    animation-iteration-count: 1; 
+    animation-play-state: paused;
+    animation: buildUnderline 2s;
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    height: 10px;
+    border-bottom: 2px solid #00E7FF;
+}
+
+@keyframes buildUnderline {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 42px;
+    }
+}
+
+.inspireBorder::before {
+    animation-iteration-count: 1; 
+    animation-play-state: paused;
+    animation: inspireUnderline 2s;
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    height: 10px;
+    border-bottom: 2px solid #00E7FF;
+}
+
+@keyframes inspireUnderline {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 54.3px;
+    }
 }
 
 
@@ -315,7 +392,7 @@ nav {
 }
 
 #team-title {
-    margin-left: 10%;
+    margin-left: 15%;
     transition-property: opacity;
     transition-duration: 5s;
     opacity: 0;
@@ -334,7 +411,7 @@ nav {
     transition-property: opacity;
     transition-duration: 1s;
     opacity: 0;
-    
+    margin: 0 20px;
 } 
 
 .image {
@@ -437,7 +514,7 @@ nav {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 80px;
+    gap: 60px;
 }
 
 form {
