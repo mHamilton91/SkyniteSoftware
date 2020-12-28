@@ -356,6 +356,15 @@ nav {
     border-bottom: 2px solid #00E7FF;
 }
 
+@-webkit-keyframes buildUnderline {
+    0% {
+        width: 0;
+    }
+    100% {
+        width: 42px;
+    }
+}
+
 @keyframes buildUnderline {
     0% {
         width: 0;
