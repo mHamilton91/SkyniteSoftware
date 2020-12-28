@@ -307,6 +307,7 @@ nav {
     transition: top 1s, opacity 1s;
     top: 50px;
     opacity: 0;
+    color: red;
 }
 
 #about-info {
@@ -331,7 +332,8 @@ nav {
     animation: designUnderline 2s;
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
+    left: 1px;
     height: 10px;
     border-bottom: 2px solid #00E7FF;
 }
@@ -351,18 +353,9 @@ nav {
     animation: buildUnderline 2s;
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     height: 10px;
     border-bottom: 2px solid #00E7FF;
-}
-
-@-webkit-keyframes buildUnderline {
-    0% {
-        width: 0;
-    }
-    100% {
-        width: 42px;
-    }
 }
 
 @keyframes buildUnderline {
@@ -380,7 +373,7 @@ nav {
     animation: inspireUnderline 2s;
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     height: 10px;
     border-bottom: 2px solid #00E7FF;
 }
