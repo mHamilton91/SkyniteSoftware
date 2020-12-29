@@ -1,10 +1,10 @@
 let $ = (element) => {return document.getElementById(element)}
 
-let deck, logo, link, scroll, nav, teamTitle
+let deck, logo, link, scrolling, nav, teamTitle
 
 let scrollOutput = () => {
-    scroll.style.padding = "15px 0"
-    scroll.innerHTML = Math.round(window.scrollY)
+    scrolling.style.padding = "15px 0"
+    scrolling.innerHTML = Math.round(window.scrollY)
 }
 
 let cardAnimation = () => {
@@ -34,7 +34,7 @@ let fadeUp = () => {
 document.addEventListener("DOMContentLoaded", function(){
     nav = $("navFixed")
     logo = $("nav-icon")
-    scroll = $("scrollView")
+    scrolling = $("scrollView")
     link = $("right-contain")
     teamTitle = $("team-title")
     aboutTitle = $("about-title")
