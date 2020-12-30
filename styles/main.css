@@ -43,7 +43,6 @@ header {
     height: calc(100vh - 3%);
     background-image: linear-gradient(145deg, rgba(51,51,51,0.7) 0%, rgba(51,51,51,0.7) 50%,
      rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.7) 50%), url("../images/header-bg.jpg");
-    /* background-attachment: fixed; */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -563,6 +562,9 @@ nav {
     max-width: 600px;
     margin: 30px;
 }
+ /* #contact-form > form {
+     background-color: red;
+ } */
 
 #contact-form > p {
     margin: 20px 0 30px 0;
@@ -599,6 +601,25 @@ nav {
     height: 150px;
     resize: none;
     font-family: sans-serif;
+}
+
+#submit {
+    color: #EEE;
+    background-color: #222;
+    border: none;
+    width: 60px;
+    height: 30px;
+    float: right;
+    border-radius: 2px;
+    margin-right: 32px;
+    font-size: 1.2rem;
+    padding: 5px;
+    box-sizing: content-box;
+}
+
+#submit:hover {
+    color:#00E7FF;
+    cursor: pointer;
 }
 
 #contact-info {

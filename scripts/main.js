@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function(){
 
 
     window.addEventListener('scroll', event => {
-        scrollOutput()
+        // scrollOutput()
 
         if ((window.pageYOffset >= (about.offsetTop-(about.offsetTop*0.7))) && (aboutCount != 1)) {
             aboutCount = 1
