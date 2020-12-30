@@ -27,7 +27,7 @@ body {
 
 
 /* Debugging */
-#scrollView {
+#scroll-view {
     position: fixed;
     top: 10px;
     right: 10px;
@@ -262,17 +262,22 @@ nav {
 /* Section Styles */
 .main-sections {
     width: 100%;
-    min-height: 200px;
-    padding: 40px 0;
+    min-height: 500px;
+    padding: 40px;
     background-color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    box-sizing: border-box;
 }
 
 /* About Section */
 #about {
     color: #EEE;
-    padding: 40px;
-    box-sizing: border-box;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #about-title {
@@ -289,7 +294,7 @@ nav {
     text-align: center;
     font-size: 1.1rem;
     line-height: 1.8rem;
-    max-width: 1000px;
+    max-width: 1200px;
     margin: 0 auto;
     position: relative;
     transition: top 1s, opacity 1s;
@@ -367,8 +372,12 @@ nav {
 }
 
 #services-title {
-    margin-left: 60%;
+    margin-left: 20%;
     font-size: 2.5em;
+    position: relative;
+    left: -60px;
+    transition: opacity 1s, left 1s;
+    opacity: 0;
 }
 
 #services-info {
@@ -379,6 +388,14 @@ nav {
     row-gap: 100px;
     column-gap: 50px;
     margin: 20px;
+    /* max-width: 1200px; */
+}
+
+.service-item {
+    position: relative;
+    left: -60px;
+    transition: opacity 1s, left 1s;
+    opacity: 0;
 }
 
 #services-info > div {
@@ -402,7 +419,7 @@ nav {
 }
 
 #team-title {
-    margin-left: 15%;
+    margin-left: 20%;
     transition-property: opacity;
     transition-duration: 5s;
     opacity: 0;

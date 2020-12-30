@@ -1,18 +1,36 @@
 let $ = (element) => {return document.getElementById(element)}
 
-let deck, logo, link, scrolling, nav, teamTitle
+let deck, logo, link, scrolling, teamTitle, services, serviceTitle, about, body
 
 let scrollOutput = () => {
     scrolling.style.padding = "15px 0"
     scrolling.innerHTML = Math.round(window.scrollY)
 }
 
+let serviceAnimation = () => {
+    let service = services.length-1;
+    serviceTitle.style.opacity = 1;
+    serviceTitle.style.left = 0;
+
+    function serviceLoop() {
+        // Sets timeout for 0.1s so the cards don't load at the same time
+        setTimeout(function() {
+            services[service].style.opacity = 1;
+            services[service].style.left = 0;
+            service--
+            if (service >= 0) {
+                serviceLoop();
+            }
+        }, 400)
+    }
+    serviceLoop()
+}
+
 let cardAnimation = () => {
-    console.log('Test')
     var card = 0;
     teamTitle.style.opacity = 1;
 
-    function myLoop() {
+    function cardLoop() {
         // Sets timeout for 0.1s so the cards don't load at the same time
         setTimeout(function() {
             deck[card].style.opacity = 1;
@@ -20,36 +38,46 @@ let cardAnimation = () => {
             deck[card].style.boxShadow = "5px 5px 5px #888888"
             card++
             if (card < deck.length) {
-                myLoop();
+                cardLoop();
             }
         }, 250)
     }
-    myLoop()
-}
-
-let fadeUp = () => {
-
+    cardLoop()
 }
 
 document.addEventListener("DOMContentLoaded", function(){
-    nav = $("navFixed")
     logo = $("nav-icon")
-    scrolling = $("scrollView")
+    scrolling = $("scroll-view")
     link = $("right-contain")
     teamTitle = $("team-title")
     aboutTitle = $("about-title")
     aboutInfo = $("about-info")
+    serviceTitle = $("services-title")
     linkStyle = window.getComputedStyle(link)
     deck = document.getElementsByClassName("card")
+    services = document.getElementsByClassName("service-item")
+    aboutCount = 0
+    servCount = 0
+    teamCount = 0
+
+
+    about = $("about")
+    body = document.getElementsByTagName("body")
+    let serv = $("services")
+    let team = $("team")
+    for(let i=0; i<body.length; i++) {
+        console.log(`Body Height: ${body[i].clientHeight}`)
+    }
+    console.log(`About Trigger: ${about.offsetTop-(about.offsetTop*0.7)}`)
+    console.log(`Service Trigger: ${serv.offsetTop-(about.offsetTop*0.7)}`)
+    console.log(`Team Trigger: ${team.offsetTop-(about.offsetTop*0.7)}`)
+
 
     window.addEventListener('scroll', event => {
         scrollOutput()
-        // if ((window.pageYOffset >= 1795) && (deck[0].style.opacity != 1)) {
-        if(deck[0].style.opacity != 1) {
-            cardAnimation()
-        }
 
-        if ((window.pageYOffset >= 500) && (aboutTitle.style.opacity != 1)) {
+        if ((window.pageYOffset >= (about.offsetTop-(about.offsetTop*0.7))) && (aboutCount != 1)) {
+            aboutCount = 1
             aboutTitle.style.top = 0
             aboutTitle.style.opacity = 1
             setTimeout(function(){
@@ -79,6 +107,20 @@ document.addEventListener("DOMContentLoaded", function(){
 
             }, 200);
         }
+
+        if((window.pageYOffset >= serv.offsetTop-(about.offsetTop*0.7)) && (servCount != 1)) {
+            servCount = 1
+            serviceAnimation()
+        }
+
+        // if ((window.pageYOffset >= 1795) && (deck[0].style.opacity != 1)) {
+        if((window.pageYOffset >= team.offsetTop-(about.offsetTop*0.7)) && (teamCount != 1)) {
+            teamCount = 1
+            cardAnimation()
+        }
+
+        
+        
     });
 
     document.addEventListener('click', e => {
