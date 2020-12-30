@@ -8,7 +8,8 @@ let scrollOutput = () => {
 }
 
 let serviceAnimation = () => {
-    let service = services.length-1;
+    // let service = services.length-1;
+    let service = 0
     serviceTitle.style.opacity = 1;
     serviceTitle.style.left = 0;
 
@@ -17,8 +18,8 @@ let serviceAnimation = () => {
         setTimeout(function() {
             services[service].style.opacity = 1;
             services[service].style.left = 0;
-            service--
-            if (service >= 0) {
+            service++
+            if (service < services.length) {
                 serviceLoop();
             }
         }, 400)
@@ -67,6 +68,7 @@ document.addEventListener("DOMContentLoaded", function(){
     let team = $("team")
     for(let i=0; i<body.length; i++) {
         console.log(`Body Height: ${body[i].clientHeight}`)
+        console.log(`Body Width: ${body[i].offsetWidth}`)
     }
     console.log(`About Trigger: ${about.offsetTop-(about.offsetTop*0.7)}`)
     console.log(`Service Trigger: ${serv.offsetTop-(about.offsetTop*0.7)}`)
