@@ -493,6 +493,7 @@ nav {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     position: relative;
+    
 }
 
 .card-info > h3 {
@@ -510,6 +511,7 @@ nav {
 .card-info > p {
     padding: 10px 10px 0 10px;
     margin: 0;
+    overflow: hidden;
 }
 
 /* Card Animation */
@@ -547,7 +549,7 @@ nav {
 #contact {
     color: #EEE;
     padding: 30px;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
 }
 
 #contact-container{
@@ -623,10 +625,11 @@ nav {
 }
 
 #contact-info {
+    max-width: 400px;
+    min-width: 0;
     background-color: #222;
     padding: 15px;
     margin: 50px 15px;
-    max-width: 400px;
     border-radius: 5px;
 }
 
@@ -641,7 +644,9 @@ nav {
 #social-icons {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 5px;
 }
 
 

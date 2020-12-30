@@ -1,6 +1,8 @@
 let $ = (element) => {return document.getElementById(element)}
 
-let deck, logo, link, scrolling, teamTitle, services, serviceTitle, about, body
+let deck, logo, link, scrolling, teamTitle, services, serviceTitle, body
+let about, serv, team
+let tableInfo = []
 
 let scrollOutput = () => {
     scrolling.style.padding = "15px 0"
@@ -46,6 +48,24 @@ let cardAnimation = () => {
     cardLoop()
 }
 
+let formatTable = (table) => {
+    let row = table.children
+    console.log(row)
+    for(let i = 0; i < row.length; i++) {
+        tableInfo.push(row[i].children[1].innerHTML)
+        row[i].children[1].remove()
+    }
+    for(let i = 0; i < 3; i++) {
+        let item = tableInfo.shift()
+        console.log((2*i) + 1)
+        let newRow = table.insertRow((2*i) + 1)
+        // newRow.innerHTML = item
+        newRow.insertCell(0).innerHTML = item
+        // newRow.insertCell(0).innerHTML(item[i])
+    }
+    
+}
+
 document.addEventListener("DOMContentLoaded", function(){
     logo = $("nav-icon")
     scrolling = $("scroll-view")
@@ -60,19 +80,17 @@ document.addEventListener("DOMContentLoaded", function(){
     aboutCount = 0
     servCount = 0
     teamCount = 0
-
-
     about = $("about")
-    body = document.getElementsByTagName("body")
-    let serv = $("services")
-    let team = $("team")
-    for(let i=0; i<body.length; i++) {
-        console.log(`Body Height: ${body[i].clientHeight}`)
-        console.log(`Body Width: ${body[i].offsetWidth}`)
+    serv = $("services")
+    team = $("team")
+
+
+    let tables = document.getElementsByTagName("table")
+    for(let i = 0; i < tables.length; i++) {
+        let tbody = tables[i].children[0]
+        formatTable(tbody)
     }
-    console.log(`About Trigger: ${about.offsetTop-(about.offsetTop*0.7)}`)
-    console.log(`Service Trigger: ${serv.offsetTop-(about.offsetTop*0.7)}`)
-    console.log(`Team Trigger: ${team.offsetTop-(about.offsetTop*0.7)}`)
+    // console.log(tableInfo)
 
 
     window.addEventListener('scroll', event => {
