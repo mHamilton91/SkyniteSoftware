@@ -58,6 +58,7 @@ let removeRow = (table) => {
         let item = tableInfo.shift()
         let newRow = table.insertRow((2*j) + 1)
         newRow.insertCell(0).innerHTML = item
+        newRow.children[0].classList.add("inputs")
     }
 }
 
@@ -75,6 +76,7 @@ let addRow = (table) => {
         let item = tableInfo.shift()
         let newData = table.children[j].insertCell(1)
         newData.innerHTML = item
+        newData.classList.add('inputs')
     }
 }
 

@@ -549,7 +549,6 @@ nav {
 #contact {
     color: #EEE;
     padding: 30px;
-    /* box-sizing: border-box; */
 }
 
 #contact-container{
@@ -564,25 +563,20 @@ nav {
     max-width: 600px;
     margin: 30px;
 }
- /* #contact-form > form {
-     background-color: red;
- } */
 
 #contact-form > p {
     margin: 20px 0 30px 0;
 }
 
-.contact-label {
+.form-label {
     padding-right: 50px;
     padding-bottom: 40px;
     font-weight: bolder;
+    box-sizing: border-box;
 }
 
 .inputs {
     padding: 0 50px 20px 0;
-}
-
-.inputs {
     width: 100%;
 }
 
@@ -638,8 +632,12 @@ nav {
     margin-bottom: 30px;
 }
 
-#contact-info td {
+.contact-label, .company-info {
     padding: 0 20px 20px 0
+}
+
+.contact-label {
+    font-weight: bolder;
 }
 
 #social-icons {
@@ -648,6 +646,33 @@ nav {
     justify-content: space-around;
     flex-wrap: wrap;
     column-gap: 5px;
+}
+
+@media only screen and (max-width: 489px) {
+    .form-label, #message-label {
+        padding: 20px 0 5px 0;
+    }
+
+    table {
+        width: 100%;
+    }
+
+    .inputs {
+        padding: 0 0 10px 0;
+        width: 100%;
+    }
+
+    #submit {
+        margin-right: 0;
+    }
+
+    .contact-label {
+        padding: 20px 0 5px 0;
+    }
+
+    #contact-info > h3 {
+        margin-bottom: 10px;
+    }
 }
 
 
