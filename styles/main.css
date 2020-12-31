@@ -50,6 +50,12 @@ header {
     border-top-right-radius: 7px;
 }
 
+@media only screen and (max-height: 750px) {
+    header {
+        height: 750px;
+    }
+}
+
 nav {
     width: 100%;
     color: #FFF;
@@ -427,7 +433,7 @@ nav {
 }
 
 #cardDeck {
-    padding: 50px 0;
+    padding: 40px 0;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
