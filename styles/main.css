@@ -561,7 +561,7 @@ nav {
 
 #contact-form {
     max-width: 600px;
-    margin: 30px;
+    /* margin: 30px; */
 }
 
 #contact-form > p {
@@ -578,6 +578,7 @@ nav {
 .inputs {
     padding: 0 50px 20px 0;
     width: 100%;
+    /* box-sizing: border-box; */
 }
 
 #name, #email, #message {
@@ -625,7 +626,7 @@ nav {
     padding: 15px;
     margin: 50px 15px;
     border-radius: 5px;
-    box-sizing: content-box;
+    /* box-sizing: content-box; */
 }
 
 #contact-info > h3 {
@@ -662,12 +663,20 @@ nav {
         width: 100%;
     }
 
+    .inputs > input, #message {
+        box-sizing: border-box;
+    }
+
     #submit {
         margin-right: 0;
     }
 
     .contact-label {
         padding: 20px 0 5px 0;
+    }
+
+    #contact-info {
+        margin: 50px 0;
     }
 
     #contact-info > h3 {
