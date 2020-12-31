@@ -48,22 +48,34 @@ let cardAnimation = () => {
     cardLoop()
 }
 
-let formatTable = (table) => {
+let removeRow = (table) => {
     let row = table.children
-    console.log(row)
     for(let i = 0; i < row.length; i++) {
         tableInfo.push(row[i].children[1].innerHTML)
         row[i].children[1].remove()
     }
-    for(let i = 0; i < 3; i++) {
+    for(let j = 0; j < 3; j++) {
         let item = tableInfo.shift()
-        console.log((2*i) + 1)
-        let newRow = table.insertRow((2*i) + 1)
-        // newRow.innerHTML = item
+        let newRow = table.insertRow((2*j) + 1)
         newRow.insertCell(0).innerHTML = item
-        // newRow.insertCell(0).innerHTML(item[i])
     }
-    
+}
+
+let addRow = (table) => {
+    let row = table.children
+    let tmp = []
+    for(let i = row.length; i > 0; i--) {
+        if(i % 2 != 0) {
+            tmp.push(row[i].innerHTML)
+            row[i].remove()
+        }
+    }
+    tableInfo = tableInfo.concat(tmp.reverse())
+    for(let j = 0; j < 3; j++) {
+        let item = tableInfo.shift()
+        let newData = table.children[j].insertCell(1)
+        newData.innerHTML = item
+    }
 }
 
 document.addEventListener("DOMContentLoaded", function(){
@@ -80,17 +92,41 @@ document.addEventListener("DOMContentLoaded", function(){
     aboutCount = 0
     servCount = 0
     teamCount = 0
+    contactCount = 0
     about = $("about")
     serv = $("services")
     team = $("team")
-
-
+    body = document.getElementsByTagName('body')[0]
     let tables = document.getElementsByTagName("table")
-    for(let i = 0; i < tables.length; i++) {
-        let tbody = tables[i].children[0]
-        formatTable(tbody)
+
+
+    console.log(body.clientWidth)
+
+    if(body.clientWidth <= 460) {
+        contactCount = 1
+        for(let i = 0; i < tables.length; i++) {
+            let tbody = tables[i].children[0]
+            removeRow(tbody)
+        }
     }
-    // console.log(tableInfo)
+
+    window.addEventListener('resize', event => {
+        if(((body.clientWidth <= 460) && (contactCount != 1))) {
+            contactCount = 1
+            for(let i = 0; i < tables.length; i++) {
+                let tbody = tables[i].children[0]
+                removeRow(tbody)
+            }
+        } else if(((body.clientWidth > 460) && (contactCount == 1))) {
+            contactCount = 0
+            for(let i = 0; i < tables.length; i++) {
+                let tbody = tables[i].children[0]
+                addRow(tbody)
+            }
+        }
+    })
+
+    
 
 
     window.addEventListener('scroll', event => {

@@ -631,6 +631,7 @@ nav {
     padding: 15px;
     margin: 50px 15px;
     border-radius: 5px;
+    box-sizing: content-box;
 }
 
 #contact-info > h3 {
