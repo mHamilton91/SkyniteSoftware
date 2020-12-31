@@ -1,22 +1,25 @@
+// Shorthand function to find an element by ID
 let $ = (element) => {return document.getElementById(element)}
 
+// Global Variables
 let deck, logo, link, scrolling, teamTitle, services, serviceTitle, body
 let about, serv, team
 let tableInfo = []
 
+// Debugging: Displays the scroll height
 let scrollOutput = () => {
     scrolling.style.padding = "15px 0"
     scrolling.innerHTML = Math.round(window.scrollY)
 }
 
+// Service Section: Service animations
 let serviceAnimation = () => {
-    // let service = services.length-1;
     let service = 0
     serviceTitle.style.opacity = 1;
     serviceTitle.style.left = 0;
 
     function serviceLoop() {
-        // Sets timeout for 0.1s so the cards don't load at the same time
+        // Sets timeout for 0.4s so the services don't load at the same time
         setTimeout(function() {
             services[service].style.opacity = 1;
             services[service].style.left = 0;
@@ -29,12 +32,13 @@ let serviceAnimation = () => {
     serviceLoop()
 }
 
+// Team Section: Card animations
 let cardAnimation = () => {
     var card = 0;
     teamTitle.style.opacity = 1;
 
     function cardLoop() {
-        // Sets timeout for 0.1s so the cards don't load at the same time
+        // Sets timeout for 0.25s so the cards don't load at the same time
         setTimeout(function() {
             deck[card].style.opacity = 1;
             deck[card].style.animation = "shadowBounce ease-in 2s"
@@ -48,6 +52,8 @@ let cardAnimation = () => {
     cardLoop()
 }
 
+// Contact Section: Formats both tables as the screen is resized
+// Contact Section: Removes every other td element and adds it to the table as a new tr element
 let removeRow = (table) => {
     let row = table.children
     for(let i = 0; i < row.length; i++) {
@@ -62,6 +68,7 @@ let removeRow = (table) => {
     }
 }
 
+// Contact Section: Removes every other tr element and adds it to the table as a new td element
 let addRow = (table) => {
     let row = table.children
     let tmp = []
@@ -80,6 +87,7 @@ let addRow = (table) => {
     }
 }
 
+// Wait for all DOM content to load
 document.addEventListener("DOMContentLoaded", function(){
     logo = $("nav-icon")
     scrolling = $("scroll-view")
@@ -88,6 +96,9 @@ document.addEventListener("DOMContentLoaded", function(){
     aboutTitle = $("about-title")
     aboutInfo = $("about-info")
     serviceTitle = $("services-title")
+    about = $("about")
+    serv = $("services")
+    team = $("team")
     linkStyle = window.getComputedStyle(link)
     deck = document.getElementsByClassName("card")
     services = document.getElementsByClassName("service-item")
@@ -95,15 +106,10 @@ document.addEventListener("DOMContentLoaded", function(){
     servCount = 0
     teamCount = 0
     contactCount = 0
-    about = $("about")
-    serv = $("services")
-    team = $("team")
     body = document.getElementsByTagName('body')[0]
     let tables = document.getElementsByTagName("table")
 
-
-    console.log(body.clientWidth)
-
+    // Contact Section: Checks the inital width of the screen to format the tables
     if(body.clientWidth <= 460) {
         contactCount = 1
         for(let i = 0; i < tables.length; i++) {
@@ -112,6 +118,7 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
 
+    // Contact Section: Calls the functions to format the tables as the screen resizes
     window.addEventListener('resize', event => {
         if(((body.clientWidth <= 460) && (contactCount != 1))) {
             contactCount = 1
@@ -128,12 +135,12 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     })
 
-    
-
-
+     
     window.addEventListener('scroll', event => {
+        // Debugging function
         // scrollOutput()
 
+        // About Section: Animations to underline design, build, and inspire (the borderBottom style is set since the animation ends and is removed from the elements)
         if ((window.pageYOffset >= (about.offsetTop-(about.offsetTop*0.7))) && (aboutCount != 1)) {
             aboutCount = 1
             aboutTitle.style.top = 0
@@ -166,21 +173,20 @@ document.addEventListener("DOMContentLoaded", function(){
             }, 200);
         }
 
+        // Service Section
         if((window.pageYOffset >= serv.offsetTop-(about.offsetTop*0.7)) && (servCount != 1)) {
             servCount = 1
             serviceAnimation()
         }
 
-        // if ((window.pageYOffset >= 1795) && (deck[0].style.opacity != 1)) {
+        // Team Section
         if((window.pageYOffset >= team.offsetTop-(about.offsetTop*0.7)) && (teamCount != 1)) {
             teamCount = 1
             cardAnimation()
         }
-
-        
-        
     });
 
+    // Opens and closes the dropdown menu whether the icon is clicked again or if the user clicks anywhere else on the page
     document.addEventListener('click', e => {
         if (e.target == logo) {
             if (linkStyle.getPropertyValue("display") == "flex") {

@@ -50,6 +50,7 @@ header {
     border-top-right-radius: 7px;
 }
 
+/* Temporary Solution: Stops height of header from shrinking so that the Skynite image doesn't run into the about section */
 @media only screen and (max-height: 750px) {
     header {
         height: 750px;
@@ -212,6 +213,7 @@ nav {
     top: 2px;
 }
 
+/* Repositions the page links to a new container that drops down from the umbrella logo on smaller screens */
 @media only screen and (max-width: 900px) {
     #right-contain {
         position: absolute;
@@ -312,8 +314,7 @@ nav {
 }
 
 .designBorder::before {
-    animation-iteration-count: 1; 
-    animation-play-state: paused;
+    animation-iteration-count: 1;
     animation: designUnderline 2s;
     content: '';
     position: absolute;
@@ -322,6 +323,7 @@ nav {
     border-bottom: 2px solid #00E7FF;
 }
 
+/* Animation to underline the word Design */
 @keyframes designUnderline {
     0% {
         width: 0;
@@ -332,8 +334,7 @@ nav {
 }
 
 .buildBorder::before {
-    animation-iteration-count: 1; 
-    animation-play-state: paused;
+    animation-iteration-count: 1;
     animation: buildUnderline 2s;
     content: '';
     position: absolute;
@@ -342,6 +343,7 @@ nav {
     border-bottom: 2px solid #00E7FF;
 }
 
+/* Animation to underline the word Build */
 @keyframes buildUnderline {
     0% {
         width: 0;
@@ -352,8 +354,7 @@ nav {
 }
 
 .inspireBorder::before {
-    animation-iteration-count: 1; 
-    animation-play-state: paused;
+    animation-iteration-count: 1;
     animation: inspireUnderline 2s;
     content: '';
     position: absolute;
@@ -362,6 +363,7 @@ nav {
     border-bottom: 2px solid #00E7FF;
 }
 
+/* Animation to underline the word Inspire */
 @keyframes inspireUnderline {
     0% {
         width: 0;
@@ -393,7 +395,6 @@ nav {
     row-gap: 100px;
     column-gap: 50px;
     margin: 20px;
-    /* max-width: 1200px; */
 }
 
 .service-item {
@@ -499,7 +500,6 @@ nav {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
     position: relative;
-    
 }
 
 .card-info > h3 {
@@ -520,7 +520,7 @@ nav {
     overflow: hidden;
 }
 
-/* Card Animation */
+/* Card shadow and bounce animation*/
 @keyframes shadowBounce {
     0% {
         transform: scale(1);
@@ -567,7 +567,6 @@ nav {
 
 #contact-form {
     max-width: 600px;
-    /* margin: 30px; */
 }
 
 #contact-form > p {
@@ -584,7 +583,6 @@ nav {
 .inputs {
     padding: 0 50px 20px 0;
     width: 100%;
-    /* box-sizing: border-box; */
 }
 
 #name, #email, #message {
@@ -632,7 +630,6 @@ nav {
     padding: 15px;
     margin: 50px 15px;
     border-radius: 5px;
-    /* box-sizing: content-box; */
 }
 
 #contact-info > h3 {
@@ -655,6 +652,7 @@ nav {
     column-gap: 5px;
 }
 
+/* Corrects the spacing of elements on smaller screens */
 @media only screen and (max-width: 489px) {
     .form-label, #message-label {
         padding: 20px 0 5px 0;
