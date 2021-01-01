@@ -118,6 +118,8 @@ document.addEventListener("DOMContentLoaded", function(){
         }
     }
 
+     
+
     // Contact Section: Calls the functions to format the tables as the screen resizes
     window.addEventListener('resize', event => {
         if(((body.clientWidth <= 460) && (contactCount != 1))) {
@@ -188,6 +190,8 @@ document.addEventListener("DOMContentLoaded", function(){
 
     // Opens and closes the dropdown menu whether the icon is clicked again or if the user clicks anywhere else on the page
     document.addEventListener('click', e => {
+        let secret = $("shhh-its-a-secret")
+
         if (e.target == logo) {
             if (linkStyle.getPropertyValue("display") == "flex") {
                 link.classList.toggle("invisible")
@@ -198,6 +202,11 @@ document.addEventListener("DOMContentLoaded", function(){
                 link.classList.add("invisible")
                 link.classList.remove("visible") 
             }
+        }
+
+        if ((document.getElementById("name").value == "Ashley") && (e.target == secret)) {
+            let contact = $("contact")
+            contact.style.backgroundImage = "url('./images/fire.png')"
         }
     });
 });
