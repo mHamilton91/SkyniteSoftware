@@ -133,7 +133,6 @@ document.addEventListener("DOMContentLoaded", function(){
                 addRow(tbody)
             }
         }
-        console.log(body.clientWidth)
     })
 
      
